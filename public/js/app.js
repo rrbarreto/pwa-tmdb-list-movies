@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Service Worker Registration Failed:', error));
     }
   
-    const apiKey = 'e47633d9526cec71b109bdc0ba65e843'; // Substitua pelo seu API key do TMDb
+    const apiKey = `${process.env.API_KEY}` // Substitua pelo seu API key do TMDb
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.json())
         .then(data => {
